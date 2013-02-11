@@ -6,7 +6,7 @@ var ws = require('websocket.io')
   , adapters = require('./lib/adapters')
 
 
-// logger level, from package ?
+// logger level, from package, conf ?
 
 /**
  * [ description]
@@ -14,22 +14,19 @@ var ws = require('websocket.io')
  */
 server.on('connection', function(socket) {
 	
-	//
-	console.log('connection bound');
-
 	// ack connection
 	socket.send('connected OK!');
 
 	/**
-	 * [ description]
-	 * @param  {[type]} data
+	 * Message handler from the client
+	 * @param  {object} data
 	 */
 	socket.on('message', function(data) {
 		console.log('on message', JSON.stringify(data));
 	});
 
 	/**
-	 * [ description]
+	 * Socket closed by client
 	 */
 	socket.on('close', function() {
 
@@ -43,10 +40,6 @@ server.on('connection', function(socket) {
 
 
 
-// about node and global vars...
-onMessage = function(data) {
-
-}
 
 
 
