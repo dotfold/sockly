@@ -1,14 +1,15 @@
 // socklyserver.spec.js
 
 
-var sockly = require('./../sockly');
+var sockly = require('./../lib/sockly')
+  , expect = require('chai').expect
 
 describe('sockly', function() {
 
 	describe('exports', function() {
 
 		it('should have start function', function() {
-			expect(sockly.start).toBeDefined();
+			expect(sockly.start).to.exist;
 		});
 	});
 
@@ -23,7 +24,7 @@ describe('sockly', function() {
 		});
 
 		it('with no arg, should call start()', function() {
-			
+
 		});
 	})
 
