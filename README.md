@@ -5,24 +5,31 @@ A WebSocket middleware to intercept log messages via TCP and transmit over nodej
 
 #### Why
 
-statsd uses UDP to handle messages (for good reason - see linktostatsd) however sending messages from the client is not possible over UDP.
+statsd uses UDP to handle messages (for good reason - see linktostatsd) however sending messages from a browser client is not possible over UDP.
 
 Sockly acts as middleware interpreting TCP messages via websocket from the client and forwarding these on to a statsd instance.
 
 Since it uses websockets, only websocket compatible browsers can take advantage of sockly.
 
+> link to table
 
 #### Install
 
 With npm:
 
 ```
-npm -g install sockly
+npm install sockly
 ```
 
 #### Usage
 
 Run the server via node:
+
+```
+$ node sockly
+```
+
+To supply your own config options:
 
 ```
 $ node sockly start path/to/conf
@@ -43,3 +50,5 @@ $ node sockly start path/to/conf
 
 
 #### License
+
+MIT
