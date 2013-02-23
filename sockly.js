@@ -1,45 +1,43 @@
 
-
-var ws = require('websocket.io')
-  , http = require('http').createServer().listen(3000)
-  , server = ws.attach(http)
-  , adapters = require('./lib/adapters')
-
-
-// logger level, from package, conf ?
-
 /**
- * [ description]
- * @param  {Object} socket
+ * sockly.js:	Entry point for sockly lib
+ *
+ * (c) 2013, dotfold
  */
-server.on('connection', function(socket) {
-	
-	// ack connection
-	socket.send('connected OK!');
+var log 	= require('./lib/logging').getLogger('sockly')
+  , cm		= require('./lib/configmanager')
+  , net 	= require('./lib/net')
+  , args 	= process.argv.slice(2)
+  , sockly 	= exports
 
-	/**
-	 * Message handler from the client
-	 * @param  {object} data
-	 */
-	socket.on('message', function(data) {
-		console.log('on message', JSON.stringify(data));
-	});
+//
+// Welcome message
+console.log('\n\tSockly.js - \u00A9 James McNamee 2013\n');
+log.debug('starting...');
 
-	/**
-	 * Socket closed by client
-	 */
-	socket.on('close', function() {
+//
+// ### function start
+// Starts the sockly service by creating a connection
+// to statsd and listening for TCP packets
+sockly.start = function() {
+	net.createServer();
+}
 
-	});
-});
+// 
+// Inspect the startup arguments for the command to run
+// 
+switch(args[0].toLowerCase()) {
 
+	//
+	// Default command, starts the sockly service
+	// 
+	case 'start' :
+		sockly.start();
+		break;
 
-// create server stream to statsd
-// start up the server
-// connect
+	// TODO help to stdout
 
-
-
-
-
-
+	default : 
+		log.debug('process args, no command found. Run default command \'start\'', args);
+		sockly.start();
+}
