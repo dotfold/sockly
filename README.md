@@ -1,4 +1,4 @@
-Sockly
+Sockly - a non-functioning, work in progress node package
 ------
 
 A WebSocket middleware to intercept log messages via TCP and transmit over nodejs streams to a statsd instance.
