@@ -9,16 +9,21 @@
     "type": "git",
     "url": "https://github.com/dotfold/sockly.git"
   },
-  "version": "0.1.0",
+  "version": "0.1.0-suddenly-sock",
   "dependencies": {
-    "colors"
+    "websocket.io": "0.2.1"
   },
   "devDependencies": {
     "mocha": "1.8.1",
-    "chai": "1.5.0"
+    "chai": "1.5.0",
+    "proxyquire": "0.4.0",
+    "sinon": "1.6.0",
+    "binaryjs": "~0.1.7"
   },
   "engines": {
-    "node" : ">=0.4"
+    "node": ">=0.4"
   },
-  "bin": { "sockly": "./bin/sockly" }
+  "bin": {
+    "sockly": "./bin/sockly"
+  }
 }
