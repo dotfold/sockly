@@ -2,6 +2,7 @@
   "name": "sockly",
   "description": "A middleware layer for statsd to accept messages via socket or TCP and stream to a statsd instance.",
   "author": "James McNamee",
+  "version": "0.1.0-suddenly-sock",
   "scripts": {
     "start": "node lib/sockly.js"
   },
@@ -9,9 +10,14 @@
     "type": "git",
     "url": "https://github.com/dotfold/sockly.git"
   },
-  "version": "0.1.0-suddenly-sock",
+  "contributors": [
+    {
+      "name": "James McNamee",
+      "email": "jamesmcnamee@gmail.com"
+    }
+  ],
   "dependencies": {
-    "websocket.io": "0.2.1"
+    
   },
   "devDependencies": {
     "mocha": "1.8.1",
@@ -20,6 +26,7 @@
     "sinon": "1.6.0",
     "binaryjs": "~0.1.7"
   },
+  "main": "./lib/sockly",
   "engines": {
     "node": ">=0.4"
   },
