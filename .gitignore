@@ -5,3 +5,7 @@ npm_debug.log
 
 ## OS
 .DS_Store
+
+#IDE
+.idea
+atlassian-ide-plugin.xml
